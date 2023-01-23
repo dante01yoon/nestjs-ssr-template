@@ -19,7 +19,8 @@
   "license": "ISC",
   "dependencies": {
     "@nestjs/core": "^9.2.1",
-    "@types/node": "^18.11.18"
+    "@types/node": "^18.11.18",
+    "ssr": "workspace:*"
   },
   "devDependencies": {
     "@nestjs/common": "^9.2.1",
