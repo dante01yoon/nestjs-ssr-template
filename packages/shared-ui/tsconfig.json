@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "module": "commonjs",
+    "outDir": "."
+  },
+  "exclude": ["node_modules", "test", "**/*spec.ts", "**/*test.ts", "**/dist", "build.js"]
+}

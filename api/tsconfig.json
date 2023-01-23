@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "es2018",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "pretty": true,
+    "sourceMap": true,
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["src/*"],
+      "~app/*": [
+        "src/app/*"
+      ],
+      "~config/*": [
+        "src/config/*"
+      ],
+      "~shared/*": [
+        "src/shared/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+}

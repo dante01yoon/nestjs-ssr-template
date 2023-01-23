@@ -1,0 +1,24 @@
+{
+  "private": true,
+  "name": "shared-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:builder": "npx esbuild build.ts --bundle --outfile=build.js --minify --platform=node",
+    "build": "pnpm build:tsc && node build.js",
+    "build:tsc": "tsc build.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.17.4",
+    "typescript": "^4.9.4"
+  }
+}
