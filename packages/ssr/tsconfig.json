@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
     "target": "esnext",
+    "module": "esNext",
+    "moduleResolution": "Node",
     "jsx": "react-jsx",
     "allowJs": true,
     "esModuleInterop": true,
-    "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "module": "commonjs",
-    "outDir": "./dist",
+    "outDir": "./dist"
   },
   "exclude": ["node_modules", "dist", "test", "**/*spec.ts", "**/*test.ts"]
 }

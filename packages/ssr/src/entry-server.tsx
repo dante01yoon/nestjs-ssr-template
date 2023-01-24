@@ -1,6 +1,6 @@
-import {renderToPipeableStream} from "react-dom/server";
-import { App } from  "./App";
+import { renderToPipeableStream } from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
+import { App } from "./App";
 
 export const render = async (url: string | Partial<Location>, res) => {
     let didError = false;
@@ -23,6 +23,7 @@ export const render = async (url: string | Partial<Location>, res) => {
     setTimeout(() => stream.abort(), 5_000)   
 }
 
-export const createServerData = (url: string | Partial<Location>) => {
 
+export const createServerData = (url: string | Partial<Location>) => {
+    
 }

@@ -5,19 +5,30 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "vite build"
+    "build": "vite build",
+    "build:client": "vite build --outDir dist/client --ssrManifest",
+    "build:server": "vite build --ssr src/entry-server.tsx --outDir dist/server"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/react-router-dom": "^5.3.3",
+    "@vitejs/plugin-react": "^3.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.7.0",
-    "shared-ui": "workspace:*",
-    "vite": "^4.0.4"
+    "shared-ui": "workspace:*"
   },
   "devDependencies": {
-    "typescript": "^4.9.4"
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@types/node": "^18.11.18",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "jsdom": "^21.1.0",
+    "typescript": "^4.9.4",
+    "vitest": "^0.28.1",
+    "vite": "^4.0.4"
   }
 }
