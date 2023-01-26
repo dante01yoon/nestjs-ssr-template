@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@dante/ssr': workspace:*
   '@nestjs/common': ^9.2.1
   '@nestjs/core': ^9.2.1
   '@nestjs/platform-fastify': ^9.2.1
@@ -8,12 +9,11 @@ specifiers:
   reflect-metadata: ^0.1.13
   rxjs: ^7.8.0
   source-map-support: ^0.5.21
-  ssr: workspace:*
 
 dependencies:
+  '@dante/ssr': link:../packages/ssr
   '@nestjs/core': 9.2.1_b4pxbpa7chblgbyake5iz5rdmu
   '@types/node': 18.11.18
-  ssr: link:../packages/ssr
 
 devDependencies:
   '@nestjs/common': 9.2.1_mnr6j2del53muneqly5h4y27ai

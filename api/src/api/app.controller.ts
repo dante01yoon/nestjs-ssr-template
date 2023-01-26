@@ -1,3 +1,4 @@
+import { render } from "@dante/ssr/dist/server";
 import { Controller, Get } from "@nestjs/common";
 import { AppService } from "./app.service";
 
@@ -7,6 +8,7 @@ export class AppController {
 
   @Get()
   getHello(): string {
+    render("/")
     return this.appService.getHello();
   }
 }
