@@ -12,7 +12,7 @@ const test: UserConfig["test"] = {
 }
 
 export default defineConfig({
-  plugins: [react, require("glob")],
+  plugins: [react()],
   build: {
     minify: false,
   },

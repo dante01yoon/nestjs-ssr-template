@@ -3,6 +3,7 @@ import { SSRPage } from "./types";
 export const PagePathsWithComponents = import.meta.glob("./pages/*.tsx", {eager: true});
 
 console.log({PagePathsWithComponents})
+
 type Route = {
     name: string;
     path: string;
