@@ -18,9 +18,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@dante/ssr": "workspace:*",
     "@nestjs/core": "^9.2.1",
     "@types/node": "^18.11.18",
-    "@dante/ssr": "workspace:*"
+    "fastify": "^4.12.0",
   },
   "devDependencies": {
     "@nestjs/common": "^9.2.1",
