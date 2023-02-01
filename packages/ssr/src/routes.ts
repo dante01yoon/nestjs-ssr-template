@@ -1,6 +1,8 @@
+import { sync } from "glob";
 import { SSRPage } from "./types";
 
-export const PagePathsWithComponents = import.meta.glob("./pages/*.tsx", {eager: true});
+export const PagePathsWithComponents = sync("./src/page/*.tsx");
+
 
 console.log({PagePathsWithComponents})
 
@@ -23,3 +25,4 @@ export const routesMap = routes.reduce((acc,cur) => {
     acc.set(cur.path, cur);
     return acc;
 }, new Map<string,Route>()) 
+ 

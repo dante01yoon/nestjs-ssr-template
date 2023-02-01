@@ -7,7 +7,6 @@ specifiers:
   '@nestjs/platform-fastify': ^9.2.1
   '@types/node': ^18.11.18
   fastify: ^4.12.0
-  install: ^0.13.0
   reflect-metadata: ^0.1.13
   rxjs: ^7.8.0
   source-map-support: ^0.5.21
@@ -17,7 +16,6 @@ dependencies:
   '@nestjs/core': 9.2.1_b4pxbpa7chblgbyake5iz5rdmu
   '@types/node': 18.11.18
   fastify: 4.12.0
-  install: 0.13.0
 
 devDependencies:
   '@nestjs/common': 9.2.1_mnr6j2del53muneqly5h4y27ai
@@ -381,11 +379,6 @@ packages:
 
   /ieee754/1.2.1:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
-
-  /install/0.13.0:
-    resolution: {integrity: sha512-zDml/jzr2PKU9I8J/xyZBQn8rPCAY//UOYNmR01XwNwyfhEWObo2SWfSl1+0tm1u6PhxLwDnfsT/6jB7OUxqFA==}
-    engines: {node: '>= 0.10'}
-    dev: false
 
   /ipaddr.js/1.9.1:
     resolution: {integrity: sha512-0KI/607xoxSToH7GjN1FfSbLoU0+btTicjsQSWQlh/hZykN8KpmMf7uYwPW3R+akZ6R/w18ZlXSHBYXiYUPO3g==}
