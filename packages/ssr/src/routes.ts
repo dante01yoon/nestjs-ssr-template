@@ -3,7 +3,7 @@ import { SSRPage } from "./types";
 
 export const PagePathsWithComponents = sync("./src/page/*.tsx");
 
-
+console.log("PagePathsWithComponents: ", PagePathsWithComponents)
 console.log({PagePathsWithComponents})
 
 type Route = {
@@ -22,6 +22,7 @@ const routes: Route[] = PagePathsWithComponents.map((path: string) => {
 });
 
 export const routesMap = routes.reduce((acc,cur) => {
+    console.log("acc, cur", acc, cur)
     acc.set(cur.path, cur);
     return acc;
 }, new Map<string,Route>()) 

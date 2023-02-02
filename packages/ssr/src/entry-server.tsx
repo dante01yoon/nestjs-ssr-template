@@ -7,10 +7,12 @@ export const render = async (url: Partial<Location>, res) => {
     let didError = false;
     const data = await createServerData(url); 
     console.log("data : ", data);
+    console.log("url: ", url);
     const stream = renderToPipeableStream(
         <StaticRouter location={url}>
             <App/>
         </StaticRouter>, {
+            bootstrapScripts: ["/main.js"],
             onShellReady() {
                 res.statusCode = didError ? 500 : 200; 
                 res.setHeader("Content-type", "text/html");
