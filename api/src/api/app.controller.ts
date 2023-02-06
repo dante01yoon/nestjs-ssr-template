@@ -14,6 +14,12 @@ export class AppController {
     res.type("text/javascript").send(stream);
   }
 
+  @Get("/main.mjs")
+  getMainMjs(@Res() res:FastifyReply) {
+    const stream = fs.readFileSync(path.join(__dirname, '..','node_modules/@dante/ssr/dist'))
+    res.type("text/javascript").send(stream);
+  }
+
   @Get()
   getIndex(@Req() req: FastifyRequest, @Res() res: FastifyReply) {
     // @ts-ignore

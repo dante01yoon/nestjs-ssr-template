@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "install:dev": "pnpm install --recursive",
-    "build:ssr": "pnpm --filter @dante/ssr build:script"
+    "build:ssr": "pnpm --filter @dante/ssr build:script",
+    "build:ssr-dev": "pnpm --filter @dante/ssr build:script",
+    "dev": "pnpm --filter nest-api start:dev NODE_ENV=development"
+    
   },
   "keywords": [],
   "author": "",

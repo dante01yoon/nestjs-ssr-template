@@ -12,7 +12,7 @@ export const render = async (url: Partial<Location>, res) => {
         <StaticRouter location={url}>
             <App/>
         </StaticRouter>, {
-            bootstrapScripts: ["/main.js"],
+            bootstrapModules: ["main.js"],
             onShellReady() {
                 res.statusCode = didError ? 500 : 200; 
                 res.setHeader("Content-type", "text/html");

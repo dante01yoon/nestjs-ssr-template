@@ -1,46 +1,63 @@
-const  { build } = require("esbuild");
-const { dependencies, peerDependencies } = require("./package.json");
+const  { build, context } = require("esbuild");
+const { dependencies, peerDependencies, devDependencies } = require("./package.json");
 const { LoaderFunction } = require("react-router-dom");
+const { esbuildVersion } = require("vite");
 
 
 const sharedConfig = {
   entryPoints: ['src/entry-server.tsx'],
   bundle: true,
+  minify: true,
   external: Object.keys(dependencies).concat(Object.keys(peerDependencies))
 }
-
-build({
-  ...sharedConfig,
-  outfile: 'dist/index.js',
-  platform: 'node',
-})
-
-build({
-  ...sharedConfig,
-  outfile: 'dist/index.esm.js',
-  format: 'esm',
-  platform: "neutral"
-})
-
-
 
 const clientConfig ={
+  bundle: true,
   entryPoints: ['src/entry-client.tsx'],
   platform: "browser",
-  loader: {
-    ".tsx": "tsx",
-    ".ts": "tsx",
-    ".jsx": "jsx",
-    ".js": "jsx",
-  },
-  // format: 'esm',
-  target: ['es2018'],
-  treeShaking: true,
-  outfile: 'dist/main.mjs',
-  bundle: true,
-  external: Object.keys(dependencies).concat(Object.keys(peerDependencies))
+  outfile: 'dist/main.js',
+  format: "iife",
+  // minify: true,
+  // plugins: [
+  //   {
+  //     name: 'make-all-packages-external',
+  //     setup(build) {
+  //       let filter = /^[^./]|^\.[^./]|^\.\.[^/]/; // Must not start with "/" or "./" or "../"
+  //       build.onResolve({ filter }, args => ({
+  //         external: true,
+  //         path: args.path,
+  //       }));
+  //     },
+  //   },
+  // ],
+  // external: ['react', 'react-dom'],
+  sourcemap: true,
 }
 
-build({
-  ...clientConfig,
-})
+const serverConfig = {
+  cjs: {
+    ...sharedConfig,
+    outfile: 'dist/index.js',
+    platform: 'node',
+  },
+  esm: {
+    ...sharedConfig,
+    outfile: 'dist/index.esm.js',
+    format: 'esm',
+    platform: "node"
+  }
+}
+for (config in serverConfig) {
+  if(Object.prototype.hasOwnProperty.call(serverConfig, config)) {
+    if(process.env.NODE_ENV  == "development") {
+      Promise.all([
+        context(config),
+      ]).then(c => c.watch)
+    }
+    else { 
+      build(serverConfig[config])
+    }
+  }
+}
+build(clientConfig)
+// context(clientConfig).then(c => c.watch())

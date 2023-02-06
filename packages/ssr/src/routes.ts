@@ -1,10 +1,20 @@
-import { sync } from "glob";
+import About from "./pages/About";
+import Home from "./pages/Home";
 import { SSRPage } from "./types";
 
-export const PagePathsWithComponents = sync("./src/page/*.tsx");
 
-console.log("PagePathsWithComponents: ", PagePathsWithComponents)
-console.log({PagePathsWithComponents})
+const routes = [
+    {
+        name: "about",
+        path: "/about",
+        component: About,
+    },
+    {
+        name: "home",
+        path: "/",
+        component: Home, 
+    }
+]
 
 type Route = {
     name: string;
@@ -12,14 +22,6 @@ type Route = {
     component: SSRPage
 }
 
-const routes: Route[] = PagePathsWithComponents.map((path: string) => {
-    const name = path.match(/\.\/pages\/(.*)\.tsx$/)![1];
-    return {
-        name,
-        path: name === "Home" ? "/" : `/${name.toLowerCase()}`,
-        component: PagePathsWithComponents[path].default,
-    }
-});
 
 export const routesMap = routes.reduce((acc,cur) => {
     console.log("acc, cur", acc, cur)

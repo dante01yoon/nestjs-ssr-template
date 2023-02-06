@@ -2,7 +2,6 @@ import { Route, Routes } from "react-router-dom"
 import { routesMap } from "./routes"
 
 export const App = () => {
-    console.log("rotuesMap: ", routesMap)
     return(
         <html>
             <head>

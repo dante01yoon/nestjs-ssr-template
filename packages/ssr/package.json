@@ -6,8 +6,8 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build:script": "node build.js && pnpm typegen",
+    "build": "./node_modules/.bin/esbuild src/entry-client.tsx --bundle --outfile=dist/main.js",
+    "build:script": "pnpm typegen  && node build.js",
     "typegen": "tsc --emitDeclarationOnly || true"
   },
   "keywords": [],
