@@ -1,9 +1,11 @@
+import { ServerResponse } from "http";
 import { renderToPipeableStream } from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
 import { App } from "./App";
 import { routesMap } from "./routes";
 
-export const render = async (url: Partial<Location>, res) => {
+
+export const render = async (url: Partial<Location>, res: ServerResponse) => {
     let didError = false;
     const data = await createServerData(url); 
     console.log("data : ", data);
@@ -12,7 +14,7 @@ export const render = async (url: Partial<Location>, res) => {
         <StaticRouter location={url}>
             <App/>
         </StaticRouter>, {
-            bootstrapModules: ["main.js"],
+            bootstrapModules: ["client/main.js"],
             onShellReady() {
                 res.statusCode = didError ? 500 : 200; 
                 res.setHeader("Content-type", "text/html");

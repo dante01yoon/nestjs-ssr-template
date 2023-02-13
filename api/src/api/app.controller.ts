@@ -9,11 +9,11 @@ import path = require("path");
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get("/client/*")
+  @Get("/client/:*.js")
   getMainJs(@Res() res:FastifyReply, @Req() req: FastifyRequest) {
     const clientStaticPath = req.url.split("/client").at(-1);
-    const stream = fs.readFileSync(path.join(__dirname, '..',`node_modules/@dante/ssr/dist/${clientStaticPath}`))
-    res.send(stream);
+    const chunk = fs.readFileSync(path.join(__dirname, '..',`node_modules/@dante/ssr/dist/${clientStaticPath}`))
+    res.type("text/javascript").send(chunk);
   }
 
   @Get("*")

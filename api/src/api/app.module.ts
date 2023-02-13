@@ -3,12 +3,9 @@ import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
 import { RenderMiddleware } from "./middleware";
 
-
 @Module({
   imports: [
-    // ServeStaticModule.forRoot({
-    //   rootPath: join("/node_modules", "@dante/ssr/dist", "main")
-    // })
+    
   ],
   controllers: [AppController],
   providers: [AppService]

@@ -16,21 +16,8 @@ const clientConfig ={
   entryPoints: ['src/entry-client.tsx'],
   platform: "browser",
   outfile: 'dist/main.js',
-  format: "iife",
+  treeShaking: true,
   // minify: true,
-  // plugins: [
-  //   {
-  //     name: 'make-all-packages-external',
-  //     setup(build) {
-  //       let filter = /^[^./]|^\.[^./]|^\.\.[^/]/; // Must not start with "/" or "./" or "../"
-  //       build.onResolve({ filter }, args => ({
-  //         external: true,
-  //         path: args.path,
-  //       }));
-  //     },
-  //   },
-  // ],
-  // external: ['react', 'react-dom'],
   sourcemap: true,
 }
 
